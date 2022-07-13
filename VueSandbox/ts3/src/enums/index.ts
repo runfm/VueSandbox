@@ -11,4 +11,13 @@ export enum ComponentSize {
 	Large
 }
 
+export enum ButtonStyle {
+	Default,
+	Primary,
+	Success,
+	Info,
+	Warning,
+	Danger
+}
+
 export default IconType

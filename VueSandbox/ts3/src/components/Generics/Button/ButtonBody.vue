@@ -1,5 +1,5 @@
 <template>
-	<component 
+	<component
 		:is="TagName"
 		:href="href"
 		:target="HrefNewWindowTarget"
@@ -9,7 +9,7 @@
 		@contextmenu.stop="contextmenu"
 	>
 		<ssp-button-icon v-if="icon" :size="size" :icon="icon" :iconType="iconType" />
-		<div  :class="TextContainerBemClass">
+		<div :class="TextContainerBemClass">
 			<slot></slot>
 		</div>
 		<ssp-button-icon
@@ -18,12 +18,14 @@
 			:icon="menuIcon"
 			:iconType="iconType"
 		/>
-	</component >
+	</component>
 </template>
 
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
-import {SspButtonComponent} from "@/models/SspComponent"
+import { SspButtonComponent } from "@/models/SspComponent"
+
+/* import {ButtonStyle} from "@/enums" */
 
 import ButtonIcon from "./ButtonIcon.vue";
 
@@ -35,31 +37,41 @@ import ButtonIcon from "./ButtonIcon.vue";
 })
 export default class SspButtonBody extends SspButtonComponent {
 
-	get TagName():string{
-		if(this.href)
+	get TagName(): string {
+		if (this.href)
 			return "a"
 		return "div"
 	}
 
-	get HrefNewWindowTarget():string | undefined{
-		if(this.openNewWindow)
+	get HrefNewWindowTarget(): string | undefined {
+		if (this.openNewWindow)
 			return '_blank'
 		return undefined
 	}
 
-	get ButtonBemClass(): Array<string> {		
+	get ButtonBemClass(): Array<string> {
 		let baseClassName = "ssp-button-body";
-		let result = [baseClassName,`${baseClassName}_size_${this.SizeStr}`]
+		let result = [
+			baseClassName,
+			`${baseClassName}_size_${this.SizeStr}`,
+			`${baseClassName}_type_${this.TypeStr}`
+		]
 		if (this.splitMenu && this.menuItems && this.menuItems.length)
 			result.push(`${baseClassName}_split-menu`);
 		if (this.borderless)
 			result.push(`${baseClassName}_borderless`);
+		if (this.plain)
+			result.push(`${baseClassName}_plain`);
 		return result;
 	}
 
-	get TextContainerBemClass(): string {
+	get TextContainerBemClass(): Array<string> {
 		let baseClassName = "ssp-button-body__text-content";
-		return `${baseClassName} ${baseClassName}_size_${this.SizeStr}`;
+		let result = [
+			baseClassName,
+			`${baseClassName}_size_${this.SizeStr}`
+		]
+		return result;
 	}
 	get TextContainerStyle(): any {
 		let style = {
@@ -71,34 +83,30 @@ export default class SspButtonBody extends SspButtonComponent {
 	}
 
 	@Emit()
-	contextmenu(e:Event) {
-		if(this.menuItems && this.menuItems.length)
+	contextmenu(e: Event) {
+		if (this.menuItems && this.menuItems.length)
 			e.preventDefault();
 	}
 
 	@Emit()
-	dblclick() {}
+	dblclick() { }
 
 	@Emit()
-	click() {}
+	click() { }
 }
 </script>
 
 <style lang="scss">
-
 .ssp-button-body {
 	display: flex;
 	gap: 8px;
 	align-items: center;
-	background: #fff;
-	color: $basicTextColor;
 	border-radius: 4px;
-	border: $border
+	border: $border;
 }
 
-a.ssp-button-body{
+a.ssp-button-body {
 	text-decoration: none !important;
-	color: $basicTextColor !important;
 }
 
 .ssp-button-body_split-menu {
@@ -106,35 +114,7 @@ a.ssp-button-body{
 }
 
 .ssp-button-body_borderless {
-	border-radius: 0px;
-	border: 0px ;
+	border-radius: 0px !important;
+	border: $borderNone !important;
 }
-
-.ssp-button-body_size_mini {
-	padding: 1px;
-	padding-right: 5px;
-}
-
-.ssp-button-body_size_small {
-	padding: 3px;
-	padding-right: 7px;
-}
-
-.ssp-button-body_size_medium {
-	padding: 5px;
-}
-
-.ssp-button-body_size_large {
-	padding: 7px;
-}
-
-.ssp-button-body__text-content {
-	font-size: $textContextFontSizeNormal;
-}
-
-.ssp-button-body__text-content_size_mini,
-.ssp-button-body__text-content_size_small{
-	font-size: $textContextFontSizeCompact;
-}
-
 </style>

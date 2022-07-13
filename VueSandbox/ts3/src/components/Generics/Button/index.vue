@@ -5,6 +5,7 @@
 				<ssp-button-body
 					:split-menu="splitMenu"
 					:active="active"
+					:plain="plain"
 					:open-new-window="openNewWindow"
 					:borderless="borderless"
 					:size="size"
@@ -13,6 +14,7 @@
 					:menu-items="menuItems"
 					:menu-icon="MenuIcon"
 					:href="href"
+					:type="type"
 					@click="bodyClick"
 					@dblclick="bodyDblclick"
 					@contextmenu="bodyContextmenu"
@@ -21,7 +23,7 @@
 				</ssp-button-body>
 				<ssp-button-icon
 					v-if="splitMenu && menuItems && menuItems.length"
-					class="ssp-button-icon_split"
+					:class="SplitMenuIconBemClass"
 					:size="size"
 					:icon="MenuIcon"
 					:iconType="iconType"
@@ -75,6 +77,19 @@ export default class SspButton extends SspButtonComponent {
 		if (this.menuItems && this.menuItems.length)
 			return this.isContextMenuVisible
 		return false
+	}
+
+	get SplitMenuIconBemClass(){
+		let baseClassName = "ssp-button-body";
+		let result = [
+			"ssp-button-icon_split",
+			baseClassName,
+			`${baseClassName}_type_${this.TypeStr}`
+		]
+
+		if (this.plain)
+			result.push(`${baseClassName}_plain`);
+		return result
 	}
 
 	private isActive: boolean;

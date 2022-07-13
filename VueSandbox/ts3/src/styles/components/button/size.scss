@@ -1,0 +1,27 @@
+
+.ssp-button-body__text-content {
+	font-size: $textContextFontSizeNormal;
+}
+
+.ssp-button-body__text-content_size_mini,
+.ssp-button-body__text-content_size_small {
+	font-size: $textContextFontSizeCompact;
+}
+
+.ssp-button-body_size_mini {
+	padding: 1px;
+	padding-right: 5px;
+}
+
+.ssp-button-body_size_small {
+	padding: 3px;
+	padding-right: 7px;
+}
+
+.ssp-button-body_size_medium {
+	padding: 5px;
+}
+
+.ssp-button-body_size_large {
+	padding: 7px;
+}

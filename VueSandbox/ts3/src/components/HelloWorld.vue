@@ -36,43 +36,53 @@
 			>ButtonAwesome</ssp-button>
 			<ssp-button
 				active
+				plain
 				icon="settings"
 				:size="SspComponentSize.Small"
+				:type="ButtonStyle.Success"
 				@click="btnClick"
 			>ButtonMaterialUI_Small</ssp-button>
 			<ssp-button
 				active
+				plain
 				split-menu
 				icon="settings"
 				:size="SspComponentSize.Mini"
 				:menu-items="l1"
+				:type="ButtonStyle.Danger"
 				@click="btnClick"
 			>ButtonMaterialUI</ssp-button>
 			<ssp-button
 				active
-				borderless
+				plain
+				
 				icon="settings"
 				tooltip="Small Borderless button"
 				:size="SspComponentSize.Small"
+				:type="ButtonStyle.Warning"
 				@click="btnClick"
 			>ButtonMaterialUI_Borderless</ssp-button>
 			<ssp-button
 				active
+				plain
 				split-menu
 				icon="s-management"
 				:size="SspComponentSize.Mini"
 				:icon-type="IconTypeEnum.Element"
 				:menu-items="l1"
+				:type="ButtonStyle.Info"
 				@click="btnClick"
 			>ButtonElementUI</ssp-button>
 			<ssp-button
 				active
+				plain
 				split-menu
 				icon="menu"
 				href="http://ya.ru"
 				open-new-window
 				:icon-type="IconTypeEnum.Element"
 				:menu-items="l1"
+				:type="ButtonStyle.Primary"
 				@click="btnClick"
 			>ButtonElementUI</ssp-button>
 		</div>
@@ -84,6 +94,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import ButtonComponent from "@/components/Generics/Button";
 import IconTypeEnum from "@/enums";
 import { ComponentSize } from "@/enums";
+import {ButtonStyle} from "@/enums"
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({
@@ -98,7 +109,8 @@ export default class HelloWorld extends Vue {
 	@Prop() readonly last_name: string;
 
 	IconTypeEnum = IconTypeEnum;
-	SspComponentSize = ComponentSize
+	SspComponentSize = ComponentSize;
+	ButtonStyle = ButtonStyle
 
 	private t1: string = "welc";
 	private l1: Array<ContextMenuItemType> = [

@@ -2,7 +2,11 @@ $borderColor: #dcdfe6 ;
 
 $border: 1px solid $borderColor;
 
-$hoveredItem: #d9ecff;
+$borderNone:1px solid transparent;
+
+$clickColor:#3a8ee6;
+
+$hoveredItem: #ecf5ff;
 
 $basicTextColor:#606266;
 
@@ -11,3 +15,7 @@ $fontSize:16px;
 $textContextFontSizeNormal:14px;
 
 $textContextFontSizeCompact:12px;
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/common/var.scss";
+

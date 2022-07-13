@@ -1,5 +1,6 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { ComponentSize } from "@/enums";
+import {ButtonStyle} from "@/enums"
 import IconTypeEnum from "@/enums";
 import { PropType } from "vue";
 import { extend } from "vue/types/umd";
@@ -34,8 +35,20 @@ export class SspButtonComponent extends SspIconicComponent{
 	@Prop({ type: Boolean }) active: boolean;
 	@Prop({ type: Boolean }) borderless: boolean;
 	@Prop({ type: Boolean }) openNewWindow: boolean;
+	@Prop({ type: Boolean }) plain: boolean;
 	@Prop({ type: Boolean }) splitMenu: boolean;
 	@Prop() menuItems: Array<ContextMenuItemType>;
+
+	@Prop({
+		default: ButtonStyle.Default,
+		type: Number as PropType<ButtonStyle>,
+	})
+	type: ButtonStyle;
+	ButtonStyle = ButtonStyle;
+
+	get TypeStr():string{
+		return ButtonStyle[this.type].toLowerCase()
+	}
 }
 
 function applyMixins(derivedCtor: any, constructors: any[]) {

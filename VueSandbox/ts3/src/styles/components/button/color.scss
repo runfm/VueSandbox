@@ -1,0 +1,154 @@
+.ssp-button-body{
+	background: #fff;
+	color: $basicTextColor;
+}
+
+.ssp-button-body:hover {
+	color: $--color-primary;
+	border-color: $--color-primary-light-7;
+	background-color: $hoveredItem;
+}
+
+.ssp-button-body:active {
+	color: $clickColor;
+	border-color: $clickColor;
+}
+
+
+.ssp-button-body_type_primary {
+	color: #fff;
+	background-color: $--color-primary;
+	border-color: $--color-primary;
+}
+.ssp-button-body_type_primary.ssp-button-body_plain {
+	color: $--color-primary;
+	background-color: $--color-primary-light-9;
+	border-color: $--color-primary-light-6;
+}
+
+.ssp-button-body_type_primary:hover {
+	color: #fff;
+	background-color: $--color-primary-light-2;
+	border-color: $--color-primary-light-2;
+}
+
+.ssp-button-body_type_primary:active {
+	color: #fff;
+	background-color: #3a8ee6;
+	border-color: #3a8ee6;
+}
+
+
+
+
+$--ssp-success-hover: mix($--color-white, $--color-success, 20%);
+$--ssp-success-active: mix(#000000, $--color-success, 10%);
+.ssp-button-body_type_success {
+	color: #fff;
+	background-color: $--color-success;
+	border-color: $--color-success;
+}
+.ssp-button-body_type_success.ssp-button-body_plain {
+	color: $--color-success;
+	background-color: $--color-success-lighter;
+	border-color: mix($--color-white, $--color-success, 60%);
+}
+
+
+.ssp-button-body_type_success:hover {
+	color: #fff;
+	background-color: $--ssp-success-hover;
+	border-color: $--ssp-success-hover;
+}
+
+.ssp-button-body_type_success:active {
+	color: #fff;
+	background-color: $--ssp-success-active;
+	border-color: $--ssp-success-active;
+}
+
+
+
+
+$--ssp-info-hover: mix($--color-white, $--color-info, 20%);
+$--ssp-info-active: mix(#000000, $--color-info, 10%);
+.ssp-button-body_type_info {
+	color: #fff;
+	background-color: $--color-info;
+	border-color: $--color-info;
+}
+.ssp-button-body_type_info.ssp-button-body_plain {
+	color: $--color-info;
+	background-color: $--color-info-lighter;
+	border-color: mix($--color-white, $--color-info, 60%);
+}
+
+.ssp-button-body_type_info:hover {
+	color: #fff;
+	background-color: $--ssp-info-hover;
+	border-color: $--ssp-info-hover;
+}
+
+.ssp-button-body_type_info:active {
+	color: #fff;
+	background-color: $--ssp-info-active;
+	border-color: $--ssp-info-active;
+}
+
+
+
+$--ssp-warning-hover: mix($--color-white, $--color-warning, 20%);
+$--ssp-warning-active: mix(#000000, $--color-warning, 10%);
+.ssp-button-body_type_warning {
+	color: #fff;
+	background-color: $--color-warning;
+	border-color: $--color-warning;
+}
+.ssp-button-body_type_warning.ssp-button-body_plain {
+	color: $--color-warning;
+	background-color: $--color-warning-lighter;
+	border-color: mix($--color-white, $--color-warning, 60%);
+}
+
+.ssp-button-body_type_warning:hover {
+	color: #fff;
+	background-color: $--ssp-warning-hover;
+	border-color: $--ssp-warning-hover;
+}
+
+.ssp-button-body_type_warning:active {
+	color: #fff;
+	background-color: $--ssp-warning-active;
+	border-color: $--ssp-warning-active;
+}
+
+$--ssp-danger-hover: mix($--color-white, $--color-danger, 20%);
+$--ssp-danger-active: mix(#000000, $--color-danger, 10%);
+.ssp-button-body_type_danger {
+	color: #fff;
+	background-color: $--color-danger;
+	border-color: $--color-danger;
+}
+
+.ssp-button-body_type_danger.ssp-button-body_plain {
+	color: $--color-danger;
+	background-color: $--color-danger-lighter;
+	border-color: mix($--color-white, $--color-danger, 60%);
+}
+
+
+.ssp-button-body_type_danger:hover {
+	color: #fff;
+	background-color: $--ssp-danger-hover;
+	border-color: $--ssp-danger-hover;
+}
+
+.ssp-button-body_type_danger:active {
+	color: #fff;
+	background-color: $--ssp-danger-active;
+	border-color: $--ssp-danger-active;
+}
+
+
+
+

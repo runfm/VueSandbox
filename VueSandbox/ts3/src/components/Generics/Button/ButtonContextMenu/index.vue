@@ -45,6 +45,7 @@ export default class SspButtonContextMenu extends Vue {
 	font-size: $textContextFontSizeNormal;
 }
 .ssp-button-context-menu__item:hover{
-	background-color: $hoveredItem
+	background-color: $hoveredItem;
+	color: $--color-primary;
 }
 </style>
