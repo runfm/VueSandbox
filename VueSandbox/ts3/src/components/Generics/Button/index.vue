@@ -44,9 +44,9 @@ import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import IconTypeEnum from "@/enums";
 import {SspButtonComponent} from "@/models/SspComponent"
 
-import ButtonBody from "./ButtonBody.vue";
-import ButtonIcon from "./ButtonIcon.vue"
-import ButtonContextMenu from "./ButtonContextMenu/"
+import ButtonBody from "./ButtonBody/index.vue";
+import ButtonIcon from "./ButtonIcon/index.vue"
+import ButtonContextMenu from "./ButtonContextMenu/index.vue"
 import ContextMenuItemType from "./ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({
@@ -118,6 +118,7 @@ export default class SspButton extends SspButtonComponent {
 	}
 
 	focusout(e: FocusEvent) {
+		let wrapperElement = this.$refs.SspWrapper
 		if (e.relatedTarget == null || !this.$refs.SspWrapper.contains(e.relatedTarget))
 			this.isContextMenuVisible = false
 	}

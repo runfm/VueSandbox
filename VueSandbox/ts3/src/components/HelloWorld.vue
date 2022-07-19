@@ -55,7 +55,6 @@
 			<ssp-button
 				active
 				plain
-				
 				icon="settings"
 				tooltip="Small Borderless button"
 				:size="SspComponentSize.Small"
@@ -85,6 +84,18 @@
 				:type="ButtonStyle.Primary"
 				@click="btnClick"
 			>ButtonElementUI</ssp-button>
+			<ssp-button
+				active
+				plain
+				split-menu
+				icon="menu"
+				href="http://ya.ru"
+				open-new-window
+				:icon-type="IconTypeEnum.Element"
+				:menu-items="l1"
+				:type="ButtonStyle.Primary"
+				@click="btnClick"
+			></ssp-button>
 		</div>
 	</div>
 </template>
@@ -94,7 +105,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import ButtonComponent from "@/components/Generics/Button";
 import IconTypeEnum from "@/enums";
 import { ComponentSize } from "@/enums";
-import {ButtonStyle} from "@/enums"
+import { ButtonStyle } from "@/enums"
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({

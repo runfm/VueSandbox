@@ -3,6 +3,10 @@
 	font-size: $textContextFontSizeNormal;
 }
 
+.ssp-button-body__text-content:not(:empty){
+	margin-left: 4px;
+}
+
 .ssp-button-body__text-content_size_mini,
 .ssp-button-body__text-content_size_small {
 	font-size: $textContextFontSizeCompact;
