@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Prop, Vue } from "vue-property-decorator";
 import { ComponentSize } from "@/enums";
+import { ButtonStyle } from "@/enums";
 import IconTypeEnum from "@/enums";
 export default class SspComponent extends Vue {
     size;
@@ -40,8 +41,14 @@ export class SspButtonComponent extends SspIconicComponent {
     active;
     borderless;
     openNewWindow;
+    plain;
     splitMenu;
     menuItems;
+    type;
+    ButtonStyle = ButtonStyle;
+    get TypeStr() {
+        return ButtonStyle[this.type].toLowerCase();
+    }
 }
 __decorate([
     Prop()
@@ -60,10 +67,19 @@ __decorate([
 ], SspButtonComponent.prototype, "openNewWindow", void 0);
 __decorate([
     Prop({ type: Boolean })
+], SspButtonComponent.prototype, "plain", void 0);
+__decorate([
+    Prop({ type: Boolean })
 ], SspButtonComponent.prototype, "splitMenu", void 0);
 __decorate([
     Prop()
 ], SspButtonComponent.prototype, "menuItems", void 0);
+__decorate([
+    Prop({
+        default: ButtonStyle.Default,
+        type: Number,
+    })
+], SspButtonComponent.prototype, "type", void 0);
 function applyMixins(derivedCtor, constructors) {
     constructors.forEach((baseCtor) => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
