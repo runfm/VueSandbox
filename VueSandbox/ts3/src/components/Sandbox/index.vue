@@ -1,23 +1,5 @@
 <template>
-	<div class="hello">
-		<h1>{{ fullName }}</h1>
-		<h3>Installed CLI Plugi3ns</h3>
-		<ul>
-			<li>
-				<a
-					href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-					target="_blank"
-					rel="noopener"
-				>vuex</a>
-			</li>
-			<li>
-				<a
-					href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-					target="_blank"
-					rel="noopener"
-				>typescript</a>
-			</li>
-		</ul>
+	<div class="ssp-main-page">
 		<div class="ssp-sandbox">
 			<ssp-button
 				icon="edit"
@@ -102,10 +84,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import ButtonComponent from "@/components/Generics/Button";
+import ButtonComponent from "@/components/Generics/Button/index.vue";
 import IconTypeEnum from "@/enums";
-import { ComponentSize } from "@/enums";
-import { ButtonStyle } from "@/enums"
+import { ComponentSize, ButtonStyle } from "@/enums";
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({
@@ -123,8 +104,8 @@ export default class HelloWorld extends Vue {
 	SspComponentSize = ComponentSize;
 	ButtonStyle = ButtonStyle
 
-	private t1: string = "welc";
-	private l1: Array<ContextMenuItemType> = [
+	t1: string = "welc";
+	l1: Array<ContextMenuItemType> = [
 		{
 			Name: "X1_шеуь23",
 			Alias: "26",
