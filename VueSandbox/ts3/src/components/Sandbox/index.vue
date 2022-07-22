@@ -86,8 +86,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import ButtonComponent from "@/components/Generics/Button/index.vue";
 import IconTypeEnum from "@/enums";
-import { ComponentSize } from "@/enums";
-import { ButtonStyle } from "@/enums"
+import { ComponentSize, ButtonStyle } from "@/enums";
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({
