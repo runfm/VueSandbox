@@ -102,7 +102,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import ButtonComponent from "@/components/Generics/Button";
+import ButtonComponent from "@/components/Generics/Button/index.vue";
 import IconTypeEnum from "@/enums";
 import { ComponentSize } from "@/enums";
 import { ButtonStyle } from "@/enums"
@@ -123,8 +123,8 @@ export default class HelloWorld extends Vue {
 	SspComponentSize = ComponentSize;
 	ButtonStyle = ButtonStyle
 
-	private t1: string = "welc";
-	private l1: Array<ContextMenuItemType> = [
+	t1: string = "welc";
+	l1: Array<ContextMenuItemType> = [
 		{
 			Name: "X1_шеуь23",
 			Alias: "26",
