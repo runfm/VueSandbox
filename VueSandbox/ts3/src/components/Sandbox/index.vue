@@ -90,12 +90,12 @@ import { ComponentSize, ButtonStyle } from "@/enums";
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
 
 @Component({
-	name: "HelloWorld",
+	name: "Sandbox",
 	components: {
 		"ssp-button": ButtonComponent,
 	},
 })
-export default class HelloWorld extends Vue {
+export default class Sandbox extends Vue {
 	@Prop() readonly msg!: string;
 	@Prop({ default: "John doe" }) readonly name: string;
 	@Prop() readonly last_name: string;
