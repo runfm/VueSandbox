@@ -9,8 +9,14 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/extr/:ext',
+    name: 'home',
+    props:true,
+    component: HomeView
   }
-  
+
   /* ,
   {
     path: '/about',

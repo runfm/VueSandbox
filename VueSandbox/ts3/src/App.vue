@@ -35,17 +35,15 @@
 			</div>
 		</div>
 
-		<HelloWorld msg="Welcome to Your Vue.js App" />
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import HelloWorld from './components/Sandbox/index.vue'
 
 export default {
 	name: 'app',
 	components: {
-		HelloWorld
 	}
 }
 </script>
