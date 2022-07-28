@@ -20,7 +20,27 @@ namespace VueSandbox.Controllers {
 
 		[HttpGet("app/info")]
 		public IActionResult GetAppInfo() {
-			return Ok(JsonConvert.SerializeObject(Context) );
+			return Ok(JsonConvert.SerializeObject(Context));
+		}
+
+		[HttpGet("app/data")]
+		public IActionResult GetServerData() {
+			var rnd = new Random();
+			var max = rnd.Next(3, 9);
+			var randomContextMenuItems = Enumerable.Range(1, max)
+				.Select(num => new {
+						ID = Guid.NewGuid().ToString(),
+						Name = $"ContextMenuItem{num}",
+						Alias = Guid.NewGuid().ToString()
+					}
+				)
+				.ToList();
+
+			var result = new {
+				ContextMenu = randomContextMenuItems
+			};
+
+			return Ok(JsonConvert.SerializeObject(result));
 		}
 	}
 }
