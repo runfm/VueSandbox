@@ -1,6 +1,6 @@
 <template>
 	<div class="ssp-main-page">
-		<div class="ssp-sandbox">
+		<div v-loading="$store.state.IsLoading" class="ssp-sandbox">
 			<ssp-button
 				icon="edit"
 				href="http://ya.ru"
@@ -13,7 +13,7 @@
 				icon="pie-chart"
 				:size="SspComponentSize.Medium"
 				:icon-type="IconTypeEnum.Awesome"
-				:menu-items="l1"
+				:menu-items="ContextMenuItems"
 				@click="btnClick"
 			>ButtonAwesome</ssp-button>
 			<ssp-button
@@ -30,7 +30,7 @@
 				split-menu
 				icon="settings"
 				:size="SspComponentSize.Mini"
-				:menu-items="l1"
+				:menu-items="ContextMenuItems"
 				:type="ButtonStyle.Danger"
 				@click="btnClick"
 			>ButtonMaterialUI</ssp-button>
@@ -50,9 +50,9 @@
 				icon="s-management"
 				:size="SspComponentSize.Mini"
 				:icon-type="IconTypeEnum.Element"
-				:menu-items="l1"
+				:menu-items="ContextMenuItems"
 				:type="ButtonStyle.Info"
-				@click="btnClick"
+				@click="promiseTestClick"
 			>ButtonElementUI</ssp-button>
 			<ssp-button
 				active
@@ -62,10 +62,10 @@
 				href="http://ya.ru"
 				open-new-window
 				:icon-type="IconTypeEnum.Element"
-				:menu-items="l1"
+				:menu-items="ContextMenuItems"
 				:type="ButtonStyle.Primary"
 				@click="btnClick"
-			>ButtonElementUI</ssp-button>
+			>{{TestG}}</ssp-button>
 			<ssp-button
 				active
 				plain
@@ -74,9 +74,8 @@
 				href="http://ya.ru"
 				open-new-window
 				:icon-type="IconTypeEnum.Element"
-				:menu-items="l1"
+				:menu-items="ContextMenuItems"
 				:type="ButtonStyle.Primary"
-				@click="btnClick"
 			></ssp-button>
 		</div>
 	</div>
@@ -85,10 +84,15 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import ButtonComponent from "@/components/Generics/Button/index.vue";
+import { getModule } from "vuex-module-decorators";
+import { Getter, namespace } from 'vuex-class'
 import IconTypeEnum from "@/enums";
 import { ComponentSize, ButtonStyle } from "@/enums";
 import ContextMenuItemType from "@/components/Generics/Button/ButtonContextMenu/ButtonContextMenuItem"
+import { SspServerRequestUrl } from "@/store/types"
 
+import SspServerDataModule from "@/store/module/server_data";
+const ns: string = 'SspServerData';
 @Component({
 	name: "Sandbox",
 	components: {
@@ -104,29 +108,24 @@ export default class Sandbox extends Vue {
 	SspComponentSize = ComponentSize;
 	ButtonStyle = ButtonStyle
 
-	t1: string = "welc";
-	l1: Array<ContextMenuItemType> = [
-		{
-			Name: "X1_шеуь23",
-			Alias: "26",
-		},
-		{
-			Name: "Jo_45еа_фа",
-			Alias: "32",
-		},
-		{
-			Name: "1124Jo_4342355еа_ф3425а",
-			Alias: "332",
-		},
-	];
-
 	get fullName(): string {
 		return `${this.name} ${this.last_name} ${this.msg}`;
 	}
 
 	btnClick(): void {
-		console.log("clicke")
+		console.log("click")
 	}
+
+	promiseTestClick(): void {
+		const moduleStore = getModule(SspServerDataModule, this.$store);
+		moduleStore.GetData(new SspServerRequestUrl("NewForm", "app/data"))
+	}
+
+	@Getter("TestG", { namespace: 'sd' })
+	TestG: string;
+
+	@Getter("ContextMenuItems", { namespace: 'sd' })
+	ContextMenuItems: Array<ContextMenuItemType>;
 }
 </script>
 

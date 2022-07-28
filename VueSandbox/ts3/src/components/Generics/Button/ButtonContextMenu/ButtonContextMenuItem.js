@@ -1,4 +1,5 @@
 export default class SspContextMenuItem {
+    ID;
     Name;
     Alias;
     Icon;

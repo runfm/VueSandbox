@@ -12,7 +12,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/extr/:ext',
-    name: 'home',
+    name: 'extr',
     props:true,
     component: HomeView
   }

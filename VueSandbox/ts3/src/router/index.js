@@ -7,6 +7,12 @@ const routes = [
         path: '/',
         name: 'home',
         component: HomeView
+    },
+    {
+        path: '/extr/:ext',
+        name: 'extr',
+        props: true,
+        component: HomeView
     }
     /* ,
     {
